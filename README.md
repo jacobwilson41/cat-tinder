@@ -1,9 +1,15 @@
 # cat-tinder
 
-just made an initial commit with two separate directories:
-a react app with redux and one without.
+I initially made two apps inside this repo:
 
-My initial thoughts are that I should not have included Redux on my resume just because I used it on one sprint. I will pretty much have to re-learn redux today which will eat up a lot of time. I will get an mvp working without redux and then with any spare time attempt to implement redux.
+- cat-tinder-redux
+- cat-tinder-noredux
+
+After going over the Redux docs, my initial thoughts were that I should not have included Redux on my resume just because I used it on one application. I pretty much was goingn to have to re-learn redux today which I knew was going to eat up a lot of time.
+
+My intentions were to get an mvp working without redux and then with any spare time, attempt to implement a version with redux.
+
+I did not have time to get to redux and I deleted the cat-tinder-redux app
 
 Basic App structure:
 App.js is going to render a <CatGif /> component
