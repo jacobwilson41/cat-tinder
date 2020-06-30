@@ -1,4 +1,4 @@
-.flex-container {
+/* .flex-container {
   display: flex;
   min-height: 100vh;
   justify-content: center;
@@ -10,9 +10,9 @@
 .flex-container img {
   height: 100%;
   width: 100%;
-}
+} */
 
-/* *,
+*,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -38,12 +38,16 @@ body {
   height: 54rem;
   margin-left: -15.3rem;
   margin-top: -27rem;
-  background: #f6f6f5;
+  background: #c5c5c4;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
 .demo__header {
   height: 6rem;
   background: #002942;
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 6rem;
+  color: white;
 }
 .demo__content {
   overflow: hidden;
@@ -98,7 +102,37 @@ body {
   -webkit-transform: translate(30rem) rotate(30deg) !important;
   transform: translate(30rem) rotate(30deg) !important;
 }
-
+.demo__card.below {
+  z-index: 1;
+}
+.demo__card__top {
+  height: 20.5rem;
+  padding-top: 4rem;
+}
+.demo__card__img {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto 1.5rem;
+  /* border-radius: 50%;
+  border: 0.5rem solid #ffffff; */
+  background-size: cover;
+}
+.demo__card__name {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+}
+.demo__card__btm {
+  height: 6rem;
+  background: #ffffff;
+}
+.demo__card__we {
+  text-align: center;
+  font-size: 2.2rem;
+  line-height: 6rem;
+}
 .demo__card__choice {
   position: absolute;
   left: 0;
@@ -155,4 +189,4 @@ body {
 .demo__tip {
   text-align: center;
   font-size: 2.2rem;
-} */
+}
