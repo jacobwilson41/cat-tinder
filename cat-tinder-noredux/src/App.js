@@ -16,7 +16,7 @@ function App() {
     getGif();
   }, []);
 
-  return <CatGif url={url} getGif={() => getGif()} />;
+  return <CatGif url={url} />;
 }
 
 export default App;

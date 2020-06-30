@@ -1,21 +1,20 @@
 import React from 'react';
 import './CatGif.css';
+import { pullChange } from './animation-logic';
 
-const CatGif = ({ url, getGif }) => {
-  const handleClick = () => {
-    getGif();
+const CatGif = ({ url }) => {
+  const handleDrag = (e) => {
+    pullChange(e);
   };
-
   return (
-    // <div className="flex-container">
-    //   <img onClick={handleClick} src={url} alt="cat"></img>
-    //   <div className="kitty">DM me</div>
-    // </div>
-
     <div className="demo">
       <header className="demo__header">Cat Tinder</header>
       <div className="demo__content">
-        <div className="demo__card-cont">
+        <div
+          draggable="true"
+          ondragstart={handleDrag}
+          className="demo__card-cont"
+        >
           <div className="demo__card">
             <div className="demo__card__top">
               <img src={url} className="demo__card__img"></img>
