@@ -1,4 +1,17 @@
-*,
+.flex-container {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  padding: 0em 3em;
+}
+
+.flex-container img {
+  height: 100%;
+  width: 100%;
+}
+
+/* *,
 *:before,
 *:after {
   box-sizing: border-box;
@@ -141,4 +154,4 @@ body {
 .demo__tip {
   text-align: center;
   font-size: 2.2rem;
-}
+} */
