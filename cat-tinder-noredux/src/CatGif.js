@@ -9,6 +9,7 @@ const CatGif = ({ url, getGif }) => {
   return (
     <div className="flex-container">
       <img onClick={handleClick} src={url} alt="cat"></img>
+      <div className="kitty">DM me</div>
     </div>
 
     // <div className="demo">

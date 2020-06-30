@@ -8,9 +8,8 @@ function App() {
 
   const getGif = async () => {
     const url = 'https://api.thecatapi.com/v1/images/search?mime_types=gif';
-    const gif = await axios.get(url);
-
-    setUrl(gif.data[0].url);
+    const response = await axios.get(url);
+    setUrl(response.data[0].url);
   };
 
   useEffect(() => {

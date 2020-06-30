@@ -1,5 +1,10 @@
 # cat-tinder
 
+1. fork it and clone it
+2. cd cat-tinder-noredux
+3. npm install
+4. npm start
+
 I initially made two apps inside this repo:
 
 - cat-tinder-redux
