@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import axios from 'axios';
 
 var animating = false;
 var cardsCounter = 0;
@@ -23,11 +24,19 @@ function pullChange() {
   $cardLike.css('opacity', likeOpacity);
 }
 
-function release() {
+async function release(e) {
   if (pullDeltaX >= decisionVal) {
     $card.addClass('to-right');
+    await axios.post('https://api.thecatapi.com/v1/votes', {
+      image_id: e.target.id,
+      value: 1
+    }).then(res => console.log(res))
   } else if (pullDeltaX <= -decisionVal) {
     $card.addClass('to-left');
+    await axios.post('https://api.thecatapi.com/v1/votes', {
+      image_id: e.target.id,
+      value: 0
+    }).then(res => console.log(res))
   }
 
   if (Math.abs(pullDeltaX) >= decisionVal) {
@@ -59,9 +68,7 @@ function release() {
   }, 300);
 }
 
-$(document).on('mousedown touchstart', '.demo__card:not(.inactive)', function (
-  e
-) {
+$(document).on('mousedown touchstart', '.demo__card:not(.inactive)', function (e) {
   if (animating) return;
 
   $card = $(this);
@@ -76,10 +83,10 @@ $(document).on('mousedown touchstart', '.demo__card:not(.inactive)', function (
     pullChange();
   });
 
-  $(document).on('mouseup touchend', function () {
+  $(document).on('mouseup touchend', function (e) {
     $(document).off('mousemove touchmove mouseup touchend');
     if (!pullDeltaX) return; // prevents from rapid click events
-    release();
+    release(e);
   });
 });
 

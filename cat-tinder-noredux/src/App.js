@@ -4,19 +4,19 @@ import CatGif from './CatGif';
 import axios from 'axios';
 
 function App() {
-  const [url, setUrl] = useState('');
+  const [gif, setGif] = useState('');
 
   const getGif = async () => {
     const url = 'https://api.thecatapi.com/v1/images/search?mime_types=gif';
     const response = await axios.get(url);
-    setUrl(response.data[0].url);
+    setGif(response.data[0]);
   };
 
   useEffect(() => {
     getGif();
   }, []);
 
-  return <CatGif url={url} />;
+  return <CatGif url={gif.url} id={gif.id} />;
 }
 
 export default App;

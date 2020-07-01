@@ -2,9 +2,10 @@ import React from 'react';
 import './CatGif.css';
 import { pullChange } from './animation-logic';
 
-const CatGif = ({ url }) => {
+const CatGif = ({ url, id }) => {
   const handleDrag = (e) => {
     pullChange(e);
+    console.log('post request')
   };
   return (
     <div className="demo">
@@ -12,19 +13,19 @@ const CatGif = ({ url }) => {
       <div className="demo__content">
         <div
           draggable="true"
-          ondragstart={handleDrag}
+          onDragStart={handleDrag}
           className="demo__card-cont"
         >
           <div className="demo__card">
             <div className="demo__card__top">
-              <img src={url} className="demo__card__img"></img>
+              <img src={url} alt="cat gif" className="demo__card__img"></img>
             </div>
             <div className="demo__card__btm">
               <p className="demo__card__we">DM me</p>
             </div>
             <div className="demo__card__choice m--reject"></div>
             <div className="demo__card__choice m--like"></div>
-            <div className="demo__card__drag"></div>
+            <div id={id} className="demo__card__drag"></div>
           </div>
         </div>
         <p className="demo__tip">Swipe left or right</p>
