@@ -9,7 +9,7 @@ var pullDeltaX = 0;
 var deg = 0;
 var $card, $cardReject, $cardLike;
 
-function pullChange() {
+export function pullChange() {
   animating = true;
   deg = pullDeltaX / 10;
   $card.css(
@@ -27,16 +27,22 @@ function pullChange() {
 async function release(e) {
   if (pullDeltaX >= decisionVal) {
     $card.addClass('to-right');
-    await axios.post('https://api.thecatapi.com/v1/votes', {  // code for upvote
-      image_id: e.target.id,
-      value: 1
-    }).then(res => console.log(res))
+    await axios
+      .post('https://api.thecatapi.com/v1/votes', {
+        // code for upvote
+        image_id: e.target.id,
+        value: 1
+      })
+      .then((res) => console.log(res));
   } else if (pullDeltaX <= -decisionVal) {
     $card.addClass('to-left');
-    await axios.post('https://api.thecatapi.com/v1/votes', { // code for downvote
-      image_id: e.target.id,
-      value: 0
-    }).then(res => console.log(res))
+    await axios
+      .post('https://api.thecatapi.com/v1/votes', {
+        // code for downvote
+        image_id: e.target.id,
+        value: 0
+      })
+      .then((res) => console.log(res));
   }
 
   if (Math.abs(pullDeltaX) >= decisionVal) {
@@ -47,7 +53,7 @@ async function release(e) {
       cardsCounter++;
       if (cardsCounter === numOfCards) {
         cardsCounter = 0;
-        $('.demo__card').removeClass('below');
+        $('.gif__card').removeClass('below');
       }
     }, 300);
   }
@@ -60,7 +66,7 @@ async function release(e) {
     $card
       .attr('style', '')
       .removeClass('reset')
-      .find('.demo__card__choice')
+      .find('.gif__card__choice')
       .attr('style', '');
 
     pullDeltaX = 0;
@@ -68,12 +74,14 @@ async function release(e) {
   }, 300);
 }
 
-$(document).on('mousedown touchstart', '.demo__card:not(.inactive)', function (e) {
+$(document).on('mousedown touchstart', '.gif__card:not(.inactive)', function (
+  e
+) {
   if (animating) return;
 
   $card = $(this);
-  $cardReject = $('.demo__card__choice.m--reject', $card);
-  $cardLike = $('.demo__card__choice.m--like', $card);
+  $cardReject = $('.gif__card__choice.m--reject', $card);
+  $cardLike = $('.gif__card__choice.m--like', $card);
   var startX = e.pageX || e.originalEvent.touches[0].pageX;
 
   $(document).on('mousemove touchmove', function (e) {
@@ -89,5 +97,3 @@ $(document).on('mousedown touchstart', '.demo__card:not(.inactive)', function (e
     release(e);
   });
 });
-
-export { pullChange };
